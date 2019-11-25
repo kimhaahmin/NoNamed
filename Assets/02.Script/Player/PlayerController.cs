@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
 
 
     Photon.Pun.PhotonView photonView = null;
-    // Start is called before the first frame update
     void Awake()
     {
         controller = GetComponent<CharacterController>();
