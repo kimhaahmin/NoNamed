@@ -6,7 +6,7 @@ namespace Asset.Script.NetWork
 {
     public class PlayerDamage : MonoBehaviour
     {
-        Player.FireCtrl fireCtrl;
+        Player.FireControl fireCtrl;
         Photon.Pun.PhotonView photonView;
         CharacterController character;
         PlayerController playerController;
@@ -28,7 +28,7 @@ namespace Asset.Script.NetWork
             audioSource = GetComponent<AudioSource>();
             playerController = GetComponent<PlayerController>();
             photonView = GetComponent<Photon.Pun.PhotonView>();
-            fireCtrl = GetComponent<Player.FireCtrl>();
+            fireCtrl = GetComponent<Player.FireControl>();
         }
 
         // Update is called once per frame

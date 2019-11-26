@@ -4,14 +4,14 @@ using UnityEngine;
 using Photon.Pun;
 namespace Asset.Script.Player
 {
-    public class FireCtrl : MonoBehaviour
+    public class FireControl : MonoBehaviour
     {
         [SerializeField] Transform firePosition = null;
         GameObject bullet;
         bool canFire = true;
         [SerializeField] float fireRate = 0.1f;
         AudioSource audioSource;
-        [SerializeField] AudioClip gunVoice = null;
+        [SerializeField] AudioClip gunVoice;
 
         PhotonView photonView = null;
         // Start is called before the first frame update
