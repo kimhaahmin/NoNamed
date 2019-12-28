@@ -57,7 +57,7 @@ public class NetWorkManager : MonoBehaviourPunCallbacks
 
     public void OnClickCreateRoomButton()
     {
-        PhotonNetwork.CreateRoom(GetRoomName(),
+        PhotonNetwork.CreateRoom( GetRoomName(),
             new Photon.Realtime.RoomOptions()
             {
                 MaxPlayers = (byte)GetMaxPlayer(),

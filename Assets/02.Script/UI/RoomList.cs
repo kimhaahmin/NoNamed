@@ -20,7 +20,7 @@ public class RoomList : MonoBehaviourPunCallbacks
                 "MaxPlayer: " + Convert.ToInt32(roomInfo.MaxPlayers) + "\n" +
                 "ConnectPlayer: " + roomInfo.PlayerCount.ToString()
                 );
-            Debug.Log("roomCount: "+roomList.Count);
+            Debug.Log("roomCount: "+ roomList.Count);
 
             GameObject room = Resources.Load("Room") as GameObject;
            
@@ -29,10 +29,5 @@ public class RoomList : MonoBehaviourPunCallbacks
         }
         
 
-    }
-    private void Update()
-    {
-
-        
     }
 }
