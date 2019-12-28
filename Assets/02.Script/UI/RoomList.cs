@@ -10,6 +10,7 @@ public class RoomList : MonoBehaviourPunCallbacks
     [SerializeField] Transform scrollView = null;
     public override void OnRoomListUpdate(List<Photon.Realtime.RoomInfo> roomList)
     {
+            Debug.Log("roomCount: "+ roomList.Count);
         foreach (GameObject room in GameObject.FindGameObjectsWithTag("Room"))
         {
             Destroy(room);
@@ -20,7 +21,6 @@ public class RoomList : MonoBehaviourPunCallbacks
                 "MaxPlayer: " + Convert.ToInt32(roomInfo.MaxPlayers) + "\n" +
                 "ConnectPlayer: " + roomInfo.PlayerCount.ToString()
                 );
-            Debug.Log("roomCount: "+ roomList.Count);
 
             GameObject room = Resources.Load("Room") as GameObject;
            

@@ -22,7 +22,6 @@ public class NetWorkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        Debug.Log("lobby");
         PhotonNetwork.NickName = GetUserID();
     }
 
