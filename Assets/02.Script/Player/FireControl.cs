@@ -7,11 +7,12 @@ namespace Asset.Script.Player
     public class FireControl : MonoBehaviour
     {
         [SerializeField] Transform firePosition = null;
-        GameObject bullet;
-        bool canFire = true;
+        [SerializeField] AudioClip gunVoice = null;
         [SerializeField] float fireRate = 0.1f;
+
+        GameObject bullet;
         AudioSource audioSource;
-        [SerializeField] AudioClip gunVoice;
+        bool canFire = true;
 
         PhotonView photonView = null;
         // Start is called before the first frame update

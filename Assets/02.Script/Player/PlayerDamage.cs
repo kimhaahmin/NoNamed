@@ -14,7 +14,7 @@ namespace Asset.Script.NetWork
         AudioSource audioSource;
         new Transform transform;
 
-        [SerializeField] AudioClip dieAudio;
+        [SerializeField] AudioClip dieAudio = null;
         [SerializeField] const int HP = 100;
         [SerializeField] int currHP;
 
