@@ -13,6 +13,7 @@ public class NetWorkManager : MonoBehaviourPunCallbacks
     public static event Func<string> GetUserID;
     public static event Func<string> GetRoomName;
 
+
     private void Awake()
     {
         PhotonNetwork.LogLevel = PunLogLevel.Full;
@@ -20,9 +21,11 @@ public class NetWorkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
     }
 
+
     public override void OnJoinedLobby()
     {
         PhotonNetwork.NickName = GetUserID();
+        Debug.Log("로비 입장");
     }
 
     public override void OnJoinedRoom()
@@ -49,27 +52,21 @@ public class NetWorkManager : MonoBehaviourPunCallbacks
     }
     public override void OnCreatedRoom()
     {
-
     }
 
- 
+
 
     public void OnClickCreateRoomButton()
     {
-        PhotonNetwork.CreateRoom( GetRoomName(),
-            new Photon.Realtime.RoomOptions()
-            {
-                MaxPlayers = (byte)GetMaxPlayer(),
-                IsOpen = true,
-                IsVisible = true
-            });
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.MaxPlayers = (byte)GetMaxPlayer();
+        roomOptions.IsOpen = true;
+        roomOptions.IsVisible = true;
+        PhotonNetwork.CreateRoom(GetRoomName(),roomOptions);
     }
 
     public void OnClickRandomRoom()
     {
         PhotonNetwork.JoinRandomRoom();
     }
-
-
-
 }

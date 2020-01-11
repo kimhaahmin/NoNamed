@@ -10,11 +10,15 @@ public class RoomList : MonoBehaviourPunCallbacks
     [SerializeField] Transform scrollView = null;
     public override void OnRoomListUpdate(List<Photon.Realtime.RoomInfo> roomList)
     {
-            Debug.Log("roomCount: "+ roomList.Count);
+    //    PhotonNetwork.LeaveLobby();
+    //    PhotonNetwork.JoinLobby();
+        Debug.Log("roomCount: " + roomList.Count);
+
         foreach (GameObject room in GameObject.FindGameObjectsWithTag("Room"))
         {
             Destroy(room);
         }
+
         foreach (Photon.Realtime.RoomInfo roomInfo in roomList)
         {
             Debug.Log(roomInfo.Name + "\n" +
@@ -23,11 +27,15 @@ public class RoomList : MonoBehaviourPunCallbacks
                 );
 
             GameObject room = Resources.Load("Room") as GameObject;
-           
+
             room.GetComponent<Room>().DisplayRoomData(roomInfo.Name, roomInfo.PlayerCount, roomInfo.MaxPlayers);
             Instantiate(room, scrollView.transform);
         }
-        
+    }
 
+    public void RoomUpdate()
+    {
+        PhotonNetwork.LeaveLobby();
+        PhotonNetwork.JoinLobby();
     }
 }
