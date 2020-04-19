@@ -10,12 +10,12 @@ using Photon.Realtime;
 public class NetWorkManager : MonoBehaviourPunCallbacks
 {
     public static event Func<float> GetMaxPlayer;
-    public static event Func<string> GetUserID;
     public static event Func<string> GetRoomName;
-
+    public static event Func<string> GetID;
 
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         PhotonNetwork.LogLevel = PunLogLevel.Full;
         PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
@@ -24,7 +24,7 @@ public class NetWorkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        PhotonNetwork.NickName = GetUserID();
+        PhotonNetwork.NickName = GetID();
         Debug.Log("로비 입장");
     }
 
